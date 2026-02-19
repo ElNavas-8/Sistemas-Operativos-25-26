@@ -6,16 +6,15 @@ int main (void)
     int i;
     int *ptr=myNumbers;
 
-    printf("%p\n", myNumbers);
+    /*printf("%p\n", myNumbers);
     printf("%p\n", &myNumbers[0]);
     printf("%p\n", &myNumbers[1]);
-    printf("%i\n", *myNumbers);
+    printf("%i\n", *myNumbers);*/
     
     for (i=0;i<4;i++)
     {
-        printf("%i y %i\n", *(ptr++), myNumbers);
+        printf("%i o %i\n", ptr++, myNumbers[i]);
     }
-    printf(%p\n, ptr)
-
+    printf("%p\n", ptr);
     return 0;
 }
