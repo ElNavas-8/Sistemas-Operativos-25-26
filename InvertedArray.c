@@ -1,25 +1,28 @@
 #include <stdio.h>
-void invertir(int myNumbers[], int inNumbers[], int i, int size);
+void invertir(int myNumbers[], int size);
 
 int main (void)
 {
     int myNumbers[4]= {323, 32, 255, 795};
     int size = sizeof(myNumbers) / sizeof(myNumbers[0]);
-    int inNumbers[4]={0};
 
-    invertir(myNumbers, inNumbers, 0, size);
+    invertir(myNumbers, size);
     for (int i = 0; i != size; ++i)
-        printf("%d ", inNumbers[i]);
-    putchar('\n');
+        printf("%d ", myNumbers[i]);
+    puts("\n");
     return 0;
 }
 
-void invertir(int myNumbers[], int inNumbers[],int i, int size){
-  if (((size-1)-i)==0) {
-    inNumbers[i]=myNumbers[0];
-  }
-  else {
-    inNumbers[i]=myNumbers[(size-1)-i];
-    invertir(myNumbers, inNumbers,++i, size); 
+void invertir(int *myNumbers, int size){
+  int *fin = myNumbers + (size-1);
+  int aux;
+  
+  while (myNumbers < fin) {
+    aux = *myNumbers;
+    *myNumbers = *fin;
+    *fin = aux;
+    
+    myNumbers++;
+    fin--;
   }
 }
