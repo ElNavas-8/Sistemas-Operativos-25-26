@@ -3,7 +3,7 @@
 
 int main (void){
 
-    char str1[12] = "Pene ";
+    char str1[12] = "Pene";
     char str2[12] = "Sucio";
     char str3[12];
 
@@ -13,6 +13,8 @@ int main (void){
     int length = strlen(str1);
     printf("strlen(str1) = %d\n", length);
 
+    str1[length] = ' ';
+    str1[length + 1] = '\0';
     strcat(str1, str2);
     printf("strcat(str1, str2) = %s\n", str1);
 }
