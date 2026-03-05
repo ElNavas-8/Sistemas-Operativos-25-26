@@ -18,7 +18,7 @@ int mi_strlen(char *str)
 {
     char *p = str;
     
-    while (*p != '\0') 
+    while (*p != '\0'){ 
         p++;
     }
     
