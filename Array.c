@@ -32,7 +32,7 @@ int main() {
         printf("Nuevo valor para [%d]: ", index);
         scanf("%d", &newValue);
         array[index] = newValue; 
-                
+
         printf("\nArray final actualizado:\n");
         printArray(array, size);
     } else {
@@ -44,7 +44,7 @@ int main() {
 
 void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
-        printf("[%d]: %d  ", i, arr[i]);
+        printf("%d ", arr[i]);
     }
     printf("\n");
 }
