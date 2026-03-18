@@ -31,4 +31,5 @@ int main() {
         close(tuberia[0]);
         exit(1);
     }
+    return 0;
 }
