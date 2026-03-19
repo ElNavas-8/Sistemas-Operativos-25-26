@@ -31,7 +31,7 @@ int main() {
         input1[strcspn(input1, "\n")] = 0;
 
 
-        write(tuberia[1], input1, sizeof(input1));        
+        write(tuberia[1], input1, strlen(input1) + 1);        
         
         read(tuberia2[0], &charcount, sizeof(charcount));
         printf("[PADRE] Número de vocales: %d\n", charcount);
