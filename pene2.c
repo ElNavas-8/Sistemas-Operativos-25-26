@@ -28,7 +28,7 @@ int main() {
     if (son == 0) { // Proceso HIJO
         close(fd[0]); 
         
-        while(*number == 0);
+        while(*number == 0) {usleep(2);}
 
         unsigned long long resultado = factorial(*number);
 
