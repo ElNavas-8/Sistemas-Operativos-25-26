@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/wait.h>
+#include <sys/wait.h>    
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <semaphore.h>
@@ -20,10 +20,12 @@ int main() {
 
     int *variable_compartida = mmap(NULL, sizeof(int), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
     sem_t *semaphore = sem_open("/mi semaforo", O_CREAT, S_IRUSR | S_IWUSR, 0);
+    sem_t *espera = sem_open("/semaforo", O_CREAT, S_IRUSR | S_IWUSR, 0);
 
     pid_t lee = fork();
 
     if (lee == 0) { // --- PROCESO HIJO ---
+        sem_wait(epsera);
         printf("Introduce un numero: ");
         scanf("%d", variable_compartida);
         sem_post(semaphore);
@@ -38,7 +40,7 @@ int main() {
         
         printf("Pulse una tecla para terminar\n");
         scanf("%*c");
-        
+        sem_post(espera);
         exit(0);
     }
 
@@ -47,6 +49,8 @@ int main() {
 
     munmap(variable_compartida, sizeof(int));
     sem_close(semaphore);
+    sem_close(espera);
+    sem_unlink("/semaforo");
     sem_unlink("/mi semaforo");
 
     return 0;
