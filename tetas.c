@@ -25,10 +25,12 @@ int main() {
     pid_t lee = fork();
 
     if (lee == 0) { // --- PROCESO HIJO ---
-        sem_wait(epsera);
+        
         printf("Introduce un numero: ");
         scanf("%d", variable_compartida);
         sem_post(semaphore);
+        sem_wait(espera);
+        printf("Termino el proceso LEE: %p\n", getpid());
         exit(0);
     } 
 
@@ -41,6 +43,7 @@ int main() {
         printf("Pulse una tecla para terminar\n");
         scanf("%*c");
         sem_post(espera);
+        printf("Termino el proceso ESCRIBE: %p\n", getpid());
         exit(0);
     }
 
