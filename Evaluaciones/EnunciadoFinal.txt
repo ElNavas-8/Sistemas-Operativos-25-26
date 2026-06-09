@@ -1,0 +1,14 @@
+Crear un programa en C que haga las siguientes tareas:
+- El programa padre crea dos hijos, "productor" y "escritor". Estos dos hilos debe permanecer vivos durante toda la duracion del programa.
+- El programa queda a la espera de que el usuario pulse la combinacion de teclas Ctrl+C. Se ha redefinido previamente el comportamiento de la señal SIGINT de manera que se gestiona mediante un handler.
+- Al entrar en el manejdor de la señal SIGINT, el hilo "productor" recibe la orden de generar un numero aleatorio entre 1 y 1000. Cuando el numero es generado, el hilo "escritor" muestra el numero por pantalla.
+- El programa vuelve a quedar a la espera de recibir una nueva combinacion de teclado Ctrl+C.
+- Este proceso se repite hasta 5 veces: es decir, el programa y muestra por pantalla genera 5 numeros aleatorios.
+- La sexta vez que el usuario introduzca la combinacion de teclas Ctrl+C, el programa finlaiza
+
+IMPORTANTE:
+
+Si vais a empelar objetos del sistema para realizar la sincronizacion, usad semaforos (no mútex)
+para iniciar los semaforos, usaremos esta sintaxis sem_init(&nombre_semaforo, 0, n)
+
+donde nombre_semaforo es el nombre de la variable que almacena el objeto y n el valor de inicio del semaforo. El segundo parametro dejadlo siempre en 0.
